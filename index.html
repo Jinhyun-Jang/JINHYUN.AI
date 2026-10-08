@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 1. 기본 타이틀 & 검색엔진 최적화(SEO) 메타 태그 -->
+    <title>JINHYUN.AI | 코딩하는 사무국장 장진현 (등대의집 스마트워크 / 장진현 교수)</title>
+    <meta name="description" content="등대의집 장진현 사무국장(장진현 교수)의 사회복지 스마트워크 및 AI 행정 자동화 플랫폼 포트폴리오. 주말의 코드로 복지의 월요일을 혁신합니다.">
+    <meta name="keywords"
+        content="장진현, 장진현 교수, 등대의집 장진현, 등대의집, 스마트워크, 코딩하는 사무국장, 사회복지 스마트워크, 사회복지 자동화, AI 행정, JINHYUN.AI, 장진현 국장, 사회복지 장진현">
+    <meta name="author" content="장진현">
+    <link rel="canonical" href="http://jinhyun.ai.kr">
+
+    <!-- 2. 구글 & 네이버 검색엔진 소유권 확인 태그 -->
+    <meta name="google-site-verification" content="Dcui0orZ1XNOm0qXTjYqIdIm7fqsqmuNpPguaO2y9LI" />
+    <meta name="naver-site-verification" content="b475305770bfbc47f6387b1bbfc5bd84416e6e25" />
+
+    <!-- 3. 오픈그래프 (SNS/카카오톡 링크 공유 시 카드 미리보기) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://jinhyun.ai.kr">
+    <meta property="og:title" content="JINHYUN.AI | 코딩하는 사무국장 장진현 (장진현 교수)">
+    <meta property="og:description" content="등대의집 장진현 사무국장의 사회복지 스마트워크 & AI 자동화 시스템 포트폴리오">
+    <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1gzT7i5Oy9voYziHbveCvBavjm5dXWWh7">
+
+    <!-- 4. JSON-LD 검색엔진 인물 & 조직 구조화 데이터 (구글 지식 패널/인물 검색 최적화) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "장진현",
+      "jobTitle": ["사무국장", "교수"],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "등대의집"
+      },
+      "url": "http://jinhyun.ai.kr",
+      "knowsAbout": ["스마트워크", "사회복지 행정 자동화", "AI 솔루션", "Google Apps Script"],
+      "description": "등대의집 사무국장 및 장진현 교수의 스마트워크 및 AI 자동화 포트폴리오"
+    }
+    </script>
+
+    <!-- 파비콘 고착화 (지구본 제거용) -->
+    <link rel="icon" type="image/x-icon"
+        href="https://drive.google.com/uc?export=view&id=1gzT7i5Oy9voYziHbveCvBavjm5dXWWh7">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://drive.google.com/uc?export=view&id=1gzT7i5Oy9voYziHbveCvBavjm5dXWWh7">
+    <link rel="apple-touch-icon" href="https://drive.google.com/uc?export=view&id=1gzT7i5Oy9voYziHbveCvBavjm5dXWWh7">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="inner-header">
+            <a href="#" class="logo" onclick="event.preventDefault()">
+                JINHYUN<span class="logo-highlight">.AI</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="nav-links">
+                <a onclick="scrollToSection('hero')" data-i18n="nav_home">Home</a>
+                <a onclick="scrollToSection('about')" data-i18n="nav_about">운영철학</a>
+                <a onclick="scrollToSection('systems')" data-i18n="nav_solutions">Solutions</a>
+                <a onclick="scrollToSection('tools')" data-i18n="nav_tech">Tech Stack</a>
+                <a onclick="openContactModal(event)" data-i18n="nav_contact" class="nav-contact-link">Contact</a>
+                <a onclick="openAdminModal()" class="nav-admin-link">관리자</a>
+
+                <!-- Sliding Indicator Bar -->
+                <div class="nav-indicator"></div>
+
+                <!-- Language Toggle -->
+                <div class="lang-toggle" onclick="toggleLanguage()">
+                    <span id="lang-kr" class="active">KR</span>
+                    <span class="divider">|</span>
+                    <span id="lang-en">EN</span>
+                </div>
+
+                <!-- Clock Container (from Project 18) -->
+                <div class="clock-container">
+                    <div class="date-now" id="dateDisplay">2026.03.12.목요일</div>
+                    <div class="time-wrapper">
+                        <div class="time-card"><span id="hh">00</span>
+                            <div class="time-card-bottom-shade"></div>
+                        </div>
+                        <div class="time-sep">:</div>
+                        <div class="time-card"><span id="mm">00</span>
+                            <div class="time-card-bottom-shade"></div>
+                        </div>
+                        <div class="time-sep">:</div>
+                        <div class="time-card"><span id="ss">00</span>
+                            <div class="time-card-bottom-shade"></div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Mobile Controls -->
+            <div class="mobile-controls">
+                <!-- Hamburger Button -->
+                <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <!-- Language Toggle (Mobile) -->
+                <div class="lang-toggle" onclick="toggleLanguage()">
+                    <span id="lang-kr-mobile" class="active">KR</span>
+                    <span class="divider">|</span>
+                    <span id="lang-en-mobile">EN</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+        <nav class="mobile-menu-nav">
+            <a onclick="scrollToSection('hero'); closeMobileMenu();" data-i18n="nav_home">Home</a>
+            <a onclick="scrollToSection('about'); closeMobileMenu();" data-i18n="nav_about">운영철학</a>
+            <a onclick="scrollToSection('systems'); closeMobileMenu();" data-i18n="nav_solutions">Solutions</a>
+            <a onclick="scrollToSection('tools'); closeMobileMenu();" data-i18n="nav_tech">Tech Stack</a>
+            <a onclick="openContactModal(event); closeMobileMenu();" data-i18n="nav_contact">Contact</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <!-- 슬라이드 캐러셀 -->
+            <div id="hero-carousel" class="carousel">
+                <div class="loader-skeleton">
+                    <div class="ios-spinner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carousel-dots"></div>
+
+        </section>
+
+        <!-- About Section (소개) -->
+        <section id="about" class="about-section">
+            <div class="about-bg-glow"></div>
+            <div class="container about-container">
+                <div class="about-title-block">
+                    <span class="about-label" data-i18n="about_label">ABOUT</span>
+                    <h1 class="about-main-title">
+                        <span class="about-title-main">JINHYUN<span class="about-title-dot">.AI</span></span>
+                    </h1>
+                    <p class="about-slogan" id="about-slogan">Loading branding...</p>
+                </div>
+                <div class="about-divider"></div>
+                <div id="about-bio" class="about-bio">
+                    <p>Loading Mission & Philosophy...</p>
+                </div>
+                <p class="about-signature" id="about-signature">Loading...</p>
+            </div>
+        </section>
+
+
+
+        <!-- System Cards Section -->
+        <section id="systems" class="section">
+            <div class="container">
+                <div class="section-intro">
+                    <h2 class="section-title" data-i18n="sect_solutions_title">Verified Solutions</h2>
+                    <p class="section-subtitle" data-i18n="sect_solutions_desc">Data-driven automated administrative
+                        systems
+                        deployed in real-world scenarios.</p>
+                </div>
+                <div class="tabs-wrapper">
+                    <div id="systems-tabs" class="tabs-container"></div>
+                </div>
+                <div id="systems-container">
+                    <!-- Skeleton -->
+                    <div class="grid skeleton-grid">
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Tech Stack Section -->
+        <section id="tools" class="section" style="background-color: var(--mantine-color-dark-7);">
+            <div class="container">
+                <div class="section-intro">
+                    <h2 class="section-title" data-i18n="sect_tech_title">Technology Stack</h2>
+                    <p class="section-subtitle" data-i18n="sect_tech_desc">Built on Google's robust cloud infrastructure
+                        for
+                        maximum reliability and security.</p>
+                </div>
+                <div id="tech-grid" class="tech-grid">
+                    <!-- JS Injected -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-layout">
+                <!-- Promo Video Section (Left) -->
+                <div class="footer-video-section">
+                    <div id="promo-video-container" class="promo-video-wrapper">
+                        <!-- YouTube Iframe Injected -->
+                    </div>
+                </div>
+
+                <!-- Footer Info Section (Right) -->
+                <div class="footer-main-info">
+                    <div class="footer-brand">
+                        <div class="logo">JINHYUN<span class="logo-highlight">.AI</span></div>
+                        <p class="footer-desc" id="footer-desc">공감과 데이터가 만나는 지점에서 AI 기반 기술로 사회복지의 미래를 설계합니다</p>
+                    </div>
+
+                    <!-- Details (Director, Email) 대신 타이핑 효과 추가 -->
+                    <div class="footer-typing-container">
+                        <p id="footer-typing" class="footer-typing-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright" id="footer-copyright">
+                <!-- Copyright from Sheets -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- System Detail Modal -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modal-title">System Detail</h3>
+                <button class="close-btn" onclick="closeModal('modal-overlay')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-media-wrapper">
+                    <img id="modal-image" src="" alt="System Preview">
+                </div>
+
+                <div class="modal-badges" style="margin-bottom: 20px;">
+                    <span class="mantine-Badge" id="modal-goal"
+                        style="background: rgba(34, 139, 230, 0.15); color: #74c0fc;">Goal</span>
+                </div>
+
+                <div class="modal-content-grid">
+                    <div class="modal-section">
+                        <h4 data-i18n="modal_func">Functions</h4>
+                        <p id="modal-functions">Loading...</p>
+                    </div>
+                    <div class="modal-section">
+                        <h4 data-i18n="modal_effect">Expected Effects</h4>
+                        <p id="modal-effects">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="modal-section" style="margin-top: 24px;">
+                    <!-- <h4 data-i18n="modal_detail">Detailed Description</h4>  Using i18n key -->
+                    <h4 data-i18n="modal_detail">Description</h4>
+                    <p id="modal-detail"
+                        style="white-space: pre-wrap; color:var(--mantine-color-dark-2); line-height: 1.6;">-</p>
+                </div>
+
+                <!-- Demo Button -->
+                <div id="modal-demo-container" style="margin-top: 32px; text-align: center; display: none;">
+                    <button id="modal-demo-btn" class="btn btn-primary"
+                        style="width: 100%; height: 48px; font-size: 1rem;">
+                        <span data-i18n="demo_btn">Try Demo</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-container" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3 data-i18n="contact_title">Contact Us</h3>
+                <button class="close-btn" onclick="closeModal('contact-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="contact-form" onsubmit="submitContact(event)">
+                    <div class="form-group">
+                        <label for="contact-title" data-i18n="form_subject">제목</label>
+                        <input type="text" id="contact-title" class="form-input" required placeholder="문의 제목을 입력해 주세요">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-name">성함 / 소속</label>
+                        <input type="text" id="contact-name" class="form-input" required placeholder="홍길동 / ○○복지관">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-contact" data-i18n="form_contact">기관전화번호 / 연락처</label>
+                        <input type="text" id="contact-contact" class="form-input" required
+                            placeholder="02-123-4567 (기관전화번호 우선 권장)">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-content" data-i18n="form_message">문의내용</label>
+                        <textarea id="contact-content" class="form-input" rows="5" required
+                            placeholder="문의하실 내용을 자유롭게 적어 주세요."></textarea>
+                    </div>
+
+                    <!-- 개인정보 동의 영역 -->
+                    <div id="contact-consent-area" class="consent-area">
+                        <div class="consent-title">🔒 개인정보 수집 및 이용 동의</div>
+                        <div class="consent-desc">
+                            문의 확인 및 회신을 위해 성함, 소속, 기관전화번호를 수집합니다.<br>
+                            수집된 정보는 해당 문의 처리 목적으로만 사용됩니다. 동의하시나요?
+                        </div>
+                        <div class="consent-buttons">
+                            <button type="button" id="consent-yes" class="consent-btn consent-btn-agree">✅ 동의함</button>
+                            <button type="button" id="consent-no" class="consent-btn consent-btn-disagree">❌
+                                동의안함</button>
+                        </div>
+                        <input type="hidden" id="contact-consent-hidden" value="false">
+                    </div>
+
+                    <button type="submit" id="contact-submit-btn" class="btn btn-primary"
+                        style="width:100%; display: none;" data-i18n="form_submit">📨 문의하기 전송</button>
+                    <div id="contact-status" style="margin-top:10px; font-size:0.9rem; text-align:center;"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Assistant Floating Button -->
+    <div class="chat-fab-container">
+        <!-- 환영 말풍선 -->
+        <div class="chat-welcome-bubble" id="chat-welcome-bubble" onclick="toggleChat()">
+            <div class="bubble-text">반갑습니다! 장진현 국장님 AI 비서입니다. 궁금하신 게 있으신가요?</div>
+            <div class="bubble-tail"></div>
+            <button class="bubble-close" onclick="event.stopPropagation(); hideChatWelcomeBubble()">&times;</button>
+        </div>
+
+        <button class="chat-fab" id="chat-fab" onclick="toggleChat()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- AI Assistant Window -->
+    <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <span class="chat-status-dot"></span>
+                <div>
+                    <div class="chat-title">AI Assistant</div>
+                    <div class="chat-subtitle" id="chat-bot-info">JINHYUN.AI 비서</div>
+                </div>
+            </div>
+            <button class="chat-close" onclick="toggleChat()">&times;</button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot">
+                안녕하세요, 장진현 국장님의 AI 비서입니다. 무엇을 도와드릴까요?
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="비서에게 질문하기..." onkeypress="handleChatKey(event)">
+            <button class="chat-send" id="chat-send-btn" onclick="sendChatMessage()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="admin-login-modal" class="modal-overlay">
+        <div class="modal-container" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3>관리자 인증</h3>
+                <button class="close-btn" onclick="closeModal('admin-login-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 15px; font-size: 0.9rem; color: var(--mantine-color-dark-2);">보안을 위해 관리자 암호를
+                    입력해 주세요.</p>
+                <input type="password" id="admin-password" class="form-input" placeholder="Password"
+                    onkeypress="if(event.key==='Enter') submitAdminLogin()">
+                <button class="btn btn-primary" style="width: 100%; margin-top: 15px;"
+                    onclick="submitAdminLogin()">로그인</button>
+                <div id="admin-login-status"
+                    style="margin-top: 10px; text-align: center; color: #fa5252; font-size: 0.85rem;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Modal -->
+    <div id="admin-dashboard-modal" class="modal-overlay">
+        <div class="modal-container" style="max-width: 1150px; width: 98%;">
+            <div class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 10px;">
+                    <span
+                        style="font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 800; color: white; letter-spacing: -0.5px;">JINHYUN<span
+                            style="color: var(--jh-blue);">.AI</span></span>
+                    실시간 관제 대시보드
+                    <span id="dashboard-refresh-time"
+                        style="font-size: 0.75rem; font-weight: normal; color: var(--mantine-color-dark-3);"></span>
+                </h3>
+                <button class="close-btn" onclick="closeModal('admin-dashboard-modal')">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 20px;">
+                <!-- Stats Row -->
+                <div class="dashboard-stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">TODAY VISITORS</div>
+                        <div class="stat-value" id="stat-today">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">TOTAL VISITORS</div>
+                        <div class="stat-value" id="stat-total">0</div>
+                    </div>
+                    <div class="stat-card" style="grid-column: span 2;">
+                        <div class="stat-label">POPULAR SYSTEMS (TOP 3)</div>
+                        <div id="stat-top-systems"
+                            style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+                            <div style="font-size: 0.85rem; color: var(--mantine-color-dark-2);">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content-grid">
+                    <!-- Recent Activity -->
+                    <div class="dashboard-section">
+                        <h4>🕒 최근 방문 활동 (Last 10)</h4>
+                        <div class="dashboard-table-wrapper" style="max-height: 320px; overflow-y: auto;">
+                            <table class="dashboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>시간</th>
+                                        <th>기기</th>
+                                        <th>활동</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="visit-log-body">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Recent Chat -->
+                    <div class="dashboard-section">
+                        <h4>🤖 최근 챗봇 대화 (Last 10)</h4>
+                        <div id="chat-log-container" class="chat-log-list" style="max-height: 320px; overflow-y: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Detail Modal -->
+    <div id="chat-detail-modal" class="modal-overlay" style="z-index: 2100;">
+        <div class="modal-container" style="max-width: 650px;">
+            <div class="modal-header">
+                <h3>💬 챗봇 대화 상세보기</h3>
+                <button class="close-btn" onclick="closeModal('chat-detail-modal')">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 24px;">
+                <div style="margin-bottom: 20px;">
+                    <div style="font-size: 0.8rem; color: var(--mantine-color-dark-3); margin-bottom: 8px;"
+                        id="detail-chat-time">🕒 -</div>
+
+                    <div
+                        style="background: rgba(0, 122, 255, 0.08); border: 1px solid rgba(0, 122, 255, 0.15); border-radius: 12px; padding: 18px; margin-bottom: 20px;">
+                        <div
+                            style="font-weight: 700; color: var(--mantine-color-blue-4); margin-bottom: 10px; font-size: 0.9rem;">
+                            👤 질문</div>
+                        <div id="detail-chat-question"
+                            style="color: white; line-height: 1.6; white-space: pre-wrap; font-size: 0.95rem;">-</div>
+                    </div>
+
+                    <div
+                        style="background: var(--mantine-color-dark-5); border: 1px solid var(--mantine-color-dark-4); border-radius: 12px; padding: 18px;">
+                        <div
+                            style="font-weight: 700; color: var(--mantine-color-dark-2); margin-bottom: 10px; font-size: 0.9rem;">
+                            🤖 답변</div>
+                        <div id="detail-chat-answer"
+                            style="color: var(--mantine-color-dark-0); line-height: 1.6; white-space: pre-wrap; font-size: 0.95rem;">
+                            -</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; height: 48px;"
+                    onclick="closeModal('chat-detail-modal')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="gas-bridge.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
